@@ -55,6 +55,7 @@ public class LocationUtils implements LocationListener {
 
     private void setContext(Context context) {
         _context = context;
+        //getLocation();
     }
 
 
@@ -120,13 +121,15 @@ public class LocationUtils implements LocationListener {
     public void onLocationChanged(@NonNull Location location) {
         if (location != null) {
             _lastLocation = location ;
-            String msg = "lat:"+location.getLatitude()+"\nlng:"+location.getLongitude()+"\nkmh:"+location.getSpeed();
-            Log.d(TAG, msg);
-            Toast.makeText(_context, msg, Toast.LENGTH_SHORT).show();
+            //String msg = "lat:"+location.getLatitude()+"\nlng:"+location.getLongitude()+"\nkmh:"+location.getSpeed();
+            //Log.d(TAG, msg);
+            //Toast.makeText(_context, msg, Toast.LENGTH_SHORT).show();
+
+            if (callback != null){
+                callback.onChange(location);
+            }
         }
-        if (callback != null){
-            callback.onChange(location);
-        }
+
 
     }
 
