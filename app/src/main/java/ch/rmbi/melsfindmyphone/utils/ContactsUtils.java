@@ -26,12 +26,58 @@ public class ContactsUtils {
     }
 
 
+    public String getContactFromPhone(String phone)
+    {
+        String search = "%";
+        if ((phone == null)||(phone.length()== 0)){
+            return "";
+        }
+        String phoneStr = phone.replaceAll("\\s+","");
+
+        if (phoneStr.startsWith("00") && phoneStr.length()>4){
+            phoneStr = phoneStr.substring(4);
+        }
+        if (phoneStr.startsWith("+") && phoneStr.length()>3){
+            phoneStr = phoneStr.substring(3);
+        }
+
+        for (int i = 0;i<phoneStr.length();i++)
+        {
+            search += phoneStr.substring(i,i+1)+"%";
+        }
+        String starred = "";
+
+        Cursor cursor = _context.getContentResolver()
+                .query(android.provider.ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                        new String[]{
+                                ContactsContract.CommonDataKinds.Phone.CONTACT_ID,
+                                ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME},
+                        ContactsContract.CommonDataKinds.Phone.NUMBER + " LIKE ? "+starred,
+                        new String[]{search}, null);
+
+        cursor.moveToFirst();
+        return cursor.getString(1);
+
+    }
+
     public boolean HasContactFromPhone(String phone, boolean onlyStarred) {
 
         String search = "%";
-        for (int i = 0;i<phone.length();i++)
+        if ((phone == null)||(phone.length()== 0)){
+            return false;
+        }
+        String phoneStr = phone.replaceAll("\\s+","");
+
+        if (phoneStr.startsWith("00") && phoneStr.length()>4){
+            phoneStr = phoneStr.substring(4);
+        }
+        if (phoneStr.startsWith("+") && phoneStr.length()>3){
+            phoneStr = phoneStr.substring(3);
+        }
+
+        for (int i = 0;i<phoneStr.length();i++)
         {
-            search += phone.substring(i,i+1)+"%";
+            search += phoneStr.substring(i,i+1)+"%";
         }
         String starred = "";
         if (onlyStarred){

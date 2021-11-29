@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
+import java.util.List;
+
 
 public class LocationUtils implements LocationListener {
     private final String TAG = this.getClass().getSimpleName();
@@ -58,6 +60,51 @@ public class LocationUtils implements LocationListener {
         //getLocation();
     }
 
+    @SuppressLint("MissingPermission")
+    public Location getLastLocation(){
+
+        try {
+
+            _locationManager = (LocationManager) _context.getSystemService(Context.LOCATION_SERVICE);
+
+            List<String> providers = _locationManager.getProviders(false);
+
+            for (String provider : providers) {
+                if (_locationManager.isProviderEnabled(provider)) {
+                    _locationManager.requestLocationUpdates(provider, 0, 0, this);
+                }
+                Location l = _locationManager.getLastKnownLocation(provider);
+                if (l == null) {
+                    continue;
+                }
+                if (_lastLocation == null || l.getAccuracy() < _lastLocation.getAccuracy()) {
+                    // Found best last known location: %s", l);
+                    _lastLocation = l;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (_lastLocation == null)
+        {
+            Location lNetwork  = _locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            Location lGps  = _locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if (lNetwork != null )
+            {
+                _lastLocation = lNetwork;
+                if (lGps != null){
+                    if (lGps.getTime() > _lastLocation.getTime())
+                    {
+                        _lastLocation = lGps;
+                    }
+                }
+            }
+
+        }
+        return _lastLocation;
+
+    }
+
 
     @SuppressLint("MissingPermission")
     public Location getLocation() {
@@ -67,7 +114,6 @@ public class LocationUtils implements LocationListener {
 
             try {
 
-                _locationManager = (LocationManager) _context.getSystemService(Context.LOCATION_SERVICE);
 
                 // getting GPS status
                 _isGPSEnabled = _locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
@@ -84,8 +130,8 @@ public class LocationUtils implements LocationListener {
 
                         _locationManager.requestLocationUpdates(
                                 LocationManager.NETWORK_PROVIDER,
-                                MIN_TIME_BW_UPDATES,
-                                MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+                                0,
+                                0, this);
                         Log.d("Network", "Network");
                         if (_locationManager != null) {
                             _lastLocation = _locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);

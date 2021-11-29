@@ -12,15 +12,73 @@ public class ConfigUtils {
     private SharedPreferences _sharedPreferences = null ;
 
 
+    private String _menuHelp = "Help";
+    private static String MENU_HELP = "MENU_HELP";
+
+    private String _menuLocation = "Where is my phone";
+    private static String MENU_LOCATION = "MENU_LOCATION";
+
+    private String _menuShowMessage = "Message";
+    private static String MENU_SHOW_MESSAGE = "MENU_SHOW_MESSAGE";
+
+
+    private String _menuPhoneInfo = "Phone info";
+    private static String MENU_PHONE_INFO = "MENU_PHONE_INFO";
+
+
     private String _dateTimePattern = "yyyy.MM.dd HH:mm:ss";
     private static String DATETIME_PATTERN = "DATETIME_PATTERN";
     private String _passphrase = "XXXX";
     private static String PASS_PHRASE = "PASS_PHRASE" ;
 
+    private boolean _onlyStarred = false;
+    private static String ONLY_STARRED = "ONLY_STARRED";
+
     public static final int CHECK_CONTACT = 1 ;
     public static final int CHECK_FAVORITES = 2 ;
     private int _checkIncommingMsg = CHECK_CONTACT ;
     private static String CHECK_INCOMMING_MSG = "CHECK_INCOMMING_MSG";
+
+    public boolean isOnlyStarred() {
+        return _onlyStarred;
+    }
+
+    public void setOnlyStarred(boolean onlyStarred) {
+        _onlyStarred = onlyStarred;
+    }
+
+    public String getMenuHelp() {
+        return _menuHelp;
+    }
+
+    public void setMenuHelp(String menuHelp) {
+        _menuHelp = menuHelp;
+    }
+
+    public String getMenuLocation() {
+        return _menuLocation;
+    }
+
+    public void setMenuLocation(String menuLocation) {
+        _menuLocation = menuLocation;
+    }
+
+    public String getMenuPhoneInfo() {
+        return _menuPhoneInfo;
+    }
+
+    public void setMenuPhoneInfo(String menuPhoneInfo) {
+        _menuPhoneInfo = menuPhoneInfo;
+    }
+
+
+    public String getMenuShowMessage() {
+        return _menuShowMessage;
+    }
+
+    public void setMenuShowMessage(String menuShowMessage) {
+        _menuShowMessage = menuShowMessage;
+    }
 
     public int getCheckIncommingMsg() {
         return _checkIncommingMsg;
@@ -59,14 +117,22 @@ public class ConfigUtils {
         _passphrase = _sharedPreferences.getString(PASS_PHRASE, _passphrase);
         _dateTimePattern = _sharedPreferences.getString(DATETIME_PATTERN, _dateTimePattern);
         _checkIncommingMsg = _sharedPreferences.getInt(CHECK_INCOMMING_MSG, _checkIncommingMsg);
-
+        _menuLocation = _sharedPreferences.getString(MENU_LOCATION, _menuLocation);
+        _menuHelp = _sharedPreferences.getString(MENU_HELP, _menuHelp);
+        _menuShowMessage = _sharedPreferences.getString(MENU_SHOW_MESSAGE, _menuShowMessage);
+        _menuPhoneInfo = _sharedPreferences.getString(MENU_PHONE_INFO, _menuPhoneInfo);
+        _onlyStarred = _sharedPreferences.getBoolean(ONLY_STARRED, _onlyStarred);
     }
     public void save()
     {
         _editor.putString(PASS_PHRASE, _passphrase);
         _editor.putString(DATETIME_PATTERN, _dateTimePattern);
         _editor.putInt(CHECK_INCOMMING_MSG, _checkIncommingMsg);
-
+        _editor.putString(MENU_LOCATION, _menuLocation);
+        _editor.putString(MENU_HELP, _menuHelp);
+        _editor.putString(MENU_SHOW_MESSAGE, _menuShowMessage);
+        _editor.putString(MENU_PHONE_INFO, _menuPhoneInfo);
+        _editor.putBoolean(ONLY_STARRED, _onlyStarred);
         _editor.commit();
     }
 

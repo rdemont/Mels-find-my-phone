@@ -2,12 +2,15 @@ package ch.rmbi.melsfindmyphone.utils;
 
 import android.content.Context;
 import android.telephony.SmsManager;
-import android.util.Log;
-import android.widget.Toast;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import ch.rmbi.melsfindmyphone.MainActivity;
+import ch.rmbi.melsfindmyphone.db.DBController;
+import ch.rmbi.melsfindmyphone.db.LogDB;
 
 public class SmsUtils {
     private final String TAG = this.getClass().getSimpleName();
@@ -31,25 +34,36 @@ public class SmsUtils {
         _context = context;
     }
 
-    public void sendSMS(String sender, String message,boolean withHeader)
+    public void sendSMS(String sender,String contact ,String message,boolean withHeader)
     {
         if (withHeader)
         {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ConfigUtils.instance(_context).getDateTimePattern());
             String msg = "[" + simpleDateFormat.format(new Date()) + "]\n";
             msg += message ;
-            sendSMS(sender,msg);
+            sendSMS(sender,contact,msg);
         }else {
-            sendSMS(sender, message);
+            sendSMS(sender,contact, message);
         }
     }
-    public void sendSMS(String sender, String message)
+    public void sendSMS(String sender,String contact, String message)
     {
-        Log.d(TAG, message);
-        Toast.makeText(_context, message, Toast.LENGTH_SHORT).show();
+        ErrorUtils.instance(_context).error(TAG,message);
+
+        DBController db = new DBController(_context, LogDB.class);
+        LogDB logObj = (LogDB)db.newObj();
+        logObj.setDate(new Date());
+        logObj.setWay(LogDB.WAY_RECEIVE);
+        logObj.setPhoneNumber(sender);
+        logObj.setContact(contact);
+        logObj.setMessage(message);
+        db.save(logObj);
+
 
         SmsManager smsManager = SmsManager.getDefault();
         ArrayList<String> msgArray = smsManager.divideMessage(message);
         smsManager.sendMultipartTextMessage(sender,null,msgArray,null,null);
+
+        MainActivity.refresh();
     }
 }

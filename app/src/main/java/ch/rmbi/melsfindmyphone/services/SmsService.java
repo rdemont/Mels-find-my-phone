@@ -3,32 +3,29 @@ package ch.rmbi.melsfindmyphone.services;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.location.Location;
-import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Bundle;
 
 import android.telephony.SmsMessage;
 import android.util.Log;
-import android.widget.Toast;
+
 
 import ch.rmbi.melsfindmyphone.app.SmsApp;
 import ch.rmbi.melsfindmyphone.utils.ConfigUtils;
 import ch.rmbi.melsfindmyphone.utils.ContactsUtils;
-import ch.rmbi.melsfindmyphone.utils.LocationUtils;
-import ch.rmbi.melsfindmyphone.utils.SmsUtils;
+import ch.rmbi.melsfindmyphone.utils.ErrorUtils;
 
 public class SmsService extends BroadcastReceiver {
 
 
-    public static final String SMS_RECEIVED_ACTION ="android.provider.Telephony.SMS_RECEIVED";
+    //public static final String SMS_RECEIVED_ACTION ="android.provider.Telephony.SMS_RECEIVED";
     private final String TAG = this.getClass().getSimpleName();
     public static final String pdu_type = "pdus";
 
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
         Log.e("SMS","onReceive ****");
         boolean isVersionM = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
 
@@ -53,10 +50,17 @@ public class SmsService extends BroadcastReceiver {
                 //CHeck if valid
                 if (messages[i].getMessageBody().startsWith(passphrase)) {
                     if ((ConfigUtils.instance(context).getCheckIncommingMsg() == ConfigUtils.CHECK_CONTACT)
-                            && ContactsUtils.getInstance(context).HasContactFromPhone(messages[i].getOriginatingAddress(), true)) {
+                            && ContactsUtils.getInstance(context).HasContactFromPhone(messages[i].getOriginatingAddress(),
+                            ConfigUtils.instance(context).isOnlyStarred())) {
                         //suppression du code secret
                         String message = messages[i].getMessageBody().substring(passphrase.length()+1);
-                        process(context, messages[i].getOriginatingAddress(), message);
+                        String contact = ContactsUtils.getInstance(context).getContactFromPhone(messages[i].getOriginatingAddress());
+                        //Uri uriSms = Uri.parse("content://sms/inbox");
+                        //messages[i].get
+
+                        abortBroadcast();
+
+                        process(context, messages[i].getOriginatingAddress(), message,contact);
                     }
                 }
 
@@ -66,34 +70,23 @@ public class SmsService extends BroadcastReceiver {
 
     }
 
-    private void process(Context context,String sender, String message) {
+    private void process(Context context,String sender, String message,String contact) {
         String strMessage = "";
-        strMessage += "SMS From: " + sender;
+        strMessage += "SMS From: " + sender +"/"+contact;
         strMessage += " : ";
         strMessage += message;
         strMessage += "\n";
-        Log.d(TAG, strMessage);
-        Toast.makeText(context, strMessage, Toast.LENGTH_SHORT).show();
 
+        ErrorUtils.instance(context).error(TAG,strMessage);
 
         SmsApp smsApp = new SmsApp(context);
         smsApp.setMessage(message);
         smsApp.setSender(sender);
+        smsApp.setContact(contact);
         smsApp.proceed();
 
 
-/*
-        Intent in = new Intent("android.intent.category.LAUNCHER");
-        in.setClass(context, SendLocation.class);
-        Bundle b = new Bundle();
-        b.putString(SendLocation.KEY_MESSAGE, message);
-        b.putString(SendLocation.KEY_SENDER,sender);
-        in.putExtras(b);
-        in.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_NO_USER_ACTION);
 
-        context.startActivity(in);
-
-*/
     }
 
 

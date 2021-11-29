@@ -14,6 +14,8 @@ public class ErrorUtils {
     private static ErrorUtils _instance = null ;
     private Context _context = null;
 
+    private boolean IS_DEBUG = false ;
+
     private ErrorUtils(){}
     public static ErrorUtils instance(Context context)
     {
@@ -38,6 +40,24 @@ public class ErrorUtils {
         _context = context;
     }
 
+    public void error(Exception ex){
+        ex.printStackTrace();
+        Log.d(TAG, ex.getMessage());
+
+        if ((_context != null) &&_instance.IS_DEBUG) {
+            Toast.makeText(_context, ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void error(String tag, String msg)
+    {
+        Log.d(tag, msg);
+        if ((_context != null) &&_instance.IS_DEBUG) {
+            Toast.makeText(_context, msg, Toast.LENGTH_SHORT).show();
+        }
+
+    }
     public void error(Object obj, String msg)
     {
         String tag = TAG;
@@ -45,9 +65,6 @@ public class ErrorUtils {
         {
             tag = obj.getClass().getSimpleName();
         }
-        Log.d(tag, msg);
-        if (_context != null) {
-            Toast.makeText(_context, msg, Toast.LENGTH_SHORT).show();
-        }
+        error(tag,msg);
     }
 }
