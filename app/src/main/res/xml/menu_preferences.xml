@@ -1,0 +1,50 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Message menu">
+
+
+        <EditTextPreference
+            app:dialogMessage="Text qui doit être au début de chaque message"
+            app:dialogTitle="Passphrase"
+            app:key="@string/KEY_PASSPHRASE"
+            app:title="Passphrase"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:dialogMessage="menu pour avoir la localisation du téléphone"
+            app:dialogTitle="menu location"
+            app:key="@string/KEY_LOCATION"
+            app:title="menu location"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:dialogMessage="Affiche un message à l'utilisateur, avec une réponse possible"
+            app:dialogTitle="menu message"
+            app:key="@string/KEY_SHOW_MESSAGE"
+            app:title="menu message"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:dialogMessage="Renvoie les informations du téléphone"
+            app:dialogTitle="menu information du téléphone"
+            app:key="@string/KEY_PHONE_INFO"
+            app:title="menu information du téléphone"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            app:key="sync"
+            app:title="Il est préférable de ne pas cahnger ce menu" />
+
+        <EditTextPreference
+            app:dependency="sync"
+            app:dialogMessage="Renvoie ne aide sur les différenes options "
+            app:dialogTitle="menu help"
+            app:key="@string/KEY_HELP"
+            app:title="menu help"
+            app:useSimpleSummaryProvider="true" />
+
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

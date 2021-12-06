@@ -17,8 +17,10 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.RemoteInput;
 
 import java.util.Date;
+import java.util.HashMap;
 
 import ch.rmbi.melsfindmyphone.LockScreenActivity;
+import ch.rmbi.melsfindmyphone.LogsActivity;
 import ch.rmbi.melsfindmyphone.MainActivity;
 import ch.rmbi.melsfindmyphone.R;
 import ch.rmbi.melsfindmyphone.SendLocationActivity;
@@ -35,6 +37,19 @@ public class SmsApp {
     public static String KEY_MESSAGE = "KEY_MESSAGE";
     public static String KEY_SENDER = "KEY_SENDER";
     public static String KEY_CONTACT = "KEY_CONTACT";
+
+    public static final int CHECK_NONE = 0 ;
+    public static final int CHECK_CONTACT = 1 ;
+    public static final int CHECK_FAVORITES = 2 ;
+
+    //public final static String ONLY_STARRED = "ONLY_STARRED";
+    //public final static int DATETIME_PATTERN = ConfigUtils.getResName(R.string.KEY_DATETIME_PATTERN);
+    //public final static String MENU_PHONE_INFO = ConfigUtils.getResName(R.string.KEY_PHONE_INFO);
+
+    //public final static String MENU_SHOW_MESSAGE = "MENU_SHOW_MESSAGE";
+    //public final static String MENU_LOCATION = "MENU_LOCATION";
+    //public final static String MENU_HELP = "MENU_HELP";
+
 
     private Context _context = null ;
     private String _sender = null ;
@@ -85,40 +100,40 @@ public class SmsApp {
             ErrorUtils.instance().error(this,"Message or sender not found");
 
         }
-        if (_message.startsWith(ConfigUtils.instance(_context).getMenuHelp()))
+        if (_message.startsWith(ConfigUtils.instance(_context).getStringValue(R.string.KEY_HELP,R.string.KEY_HELP_DEFAULT_VALUE)))
         {
             sendHelp();
 
         }
-        if (_message.startsWith(ConfigUtils.instance(_context).getMenuLocation()))
+        if (_message.startsWith(ConfigUtils.instance(_context).getStringValue(R.string.KEY_LOCATION,R.string.KEY_LOCATION_DEFAULT_VALUE)))
         {
             sendLocation();
 
         }
-        if (_message.startsWith(ConfigUtils.instance(_context).getMenuShowMessage()+" "))
+        if (_message.startsWith(ConfigUtils.instance(_context).getStringValue(R.string.KEY_SHOW_MESSAGE,R.string.KEY_SHOW_MESSAGE_DEFAULT_VALUE)+" "))
         {
             showMessage();
 
         }
-        if (_message.startsWith(ConfigUtils.instance(_context).getMenuPhoneInfo()))
+        if (_message.startsWith(ConfigUtils.instance(_context).getStringValue(R.string.KEY_PHONE_INFO,R.string.KEY_PHONE_INFO_DEFAULT_VALUE)))
         {
             sendPhoneInfo();
 
         }
 
-        if (MainActivity.isActive())
+        if (LogsActivity.isActive())
         {
-                MainActivity.refresh();
+            LogsActivity.refresh();
         }
     }
 
     private void sendHelp()
     {
         String msg = "";
-        msg += "["+ConfigUtils.instance(_context).getMenuHelp() + "] To get this help\n";
-        msg += "["+ConfigUtils.instance(_context).getMenuLocation() + "] To get the localisation of the phone\n";
-        msg += "["+ConfigUtils.instance(_context).getMenuPhoneInfo() + "] To get Phone information\n";
-        msg += "["+ConfigUtils.instance(_context).getMenuShowMessage() + "] To show a message on the phone \n";
+        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_HELP,R.string.KEY_HELP_DEFAULT_VALUE)+ "] To get this help\n";
+        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_LOCATION,R.string.KEY_LOCATION_DEFAULT_VALUE) + "] To get the localisation of the phone\n";
+        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_PHONE_INFO,R.string.KEY_PHONE_INFO_DEFAULT_VALUE) + "] To get Phone information\n";
+        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_SHOW_MESSAGE,R.string.KEY_SHOW_MESSAGE_DEFAULT_VALUE) + "+ Message] To show a message on the phone \n";
         SmsUtils.instance(_context).sendSMS(_sender,_contact,msg, true);
     }
 
@@ -165,7 +180,7 @@ public class SmsApp {
 
     private void showMessage()
     {
-        String message = _message.substring(ConfigUtils.instance(_context).getMenuShowMessage().length()+1);
+        String message = _message.substring(ConfigUtils.instance(_context).getStringValue(R.string.KEY_SHOW_MESSAGE,R.string.KEY_SHOW_MESSAGE_DEFAULT_VALUE).length()+1);
         Intent in = new Intent("android.intent.category.LAUNCHER");
         in.setClass(_context, LockScreenActivity.class);
         Bundle b = new Bundle();
@@ -202,7 +217,7 @@ public class SmsApp {
     private void OldShowMessage()
     {
 
-        String message = _message.  substring(ConfigUtils.instance(_context).getMenuShowMessage().length()+1);
+        String message = _message.  substring(ConfigUtils.instance(_context).getStringValue(R.string.KEY_SHOW_MESSAGE,R.string.KEY_SHOW_MESSAGE_DEFAULT_VALUE).length()+1);
         String title = "INFO";
 
         createNotificationChannel(CHANEL_ID,"Chanel Name","Chanel Description");

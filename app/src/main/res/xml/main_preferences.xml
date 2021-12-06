@@ -1,0 +1,36 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        app:key="MENU_FRAGMENT_TAG"
+        app:summary="Shows menu preferences"
+        app:title="Menu preference"
+        app:fragment="ch.rmbi.melsfindmyphone.SettingsActivity$SettingsMenuFragment"
+        />
+
+
+
+    <PreferenceCategory app:title="Settings">
+
+
+        <ListPreference
+            app:key="@string/KEY_DATETIME_PATTERN"
+
+            app:entries="@array/datetime_format_desc"
+            app:entryValues="@array/datetime_format_values"
+            app:title="Date time format"
+            app:summary="%s"
+            app:useSimpleSummaryProvider="false" />
+
+        <ListPreference
+            app:key="@string/KEY_SENDER_VALIDATION_TYPE"
+            app:entries="@array/sender_validation_desc"
+            app:entryValues="@array/sender_validation_values"
+            app:title="Sender validation type"
+            app:summary="%s"
+            app:useSimpleSummaryProvider="false" />
+
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

@@ -21,14 +21,6 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
     private Context _context;
 
 
-
-/*
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-*/
-
     private ArrayList<BaseDB> _arrayList;
     private LayoutInflater _inflater;
     private ItemClickListener mClickListener;
@@ -51,7 +43,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         LogDB logDB = (LogDB) _arrayList.get(position);
-        SimpleDateFormat dateFormat= new SimpleDateFormat(ConfigUtils.instance(_context).getDateTimePattern());
+        SimpleDateFormat dateFormat= new SimpleDateFormat(ConfigUtils.instance(_context).getStringValue(R.string.KEY_DATETIME_PATTERN,R.string.KEY_DATETIME_PATTERN_DEFAULT_VALUE));
         holder._tvDate.setText(dateFormat.format(logDB.getDate()));
         holder._tvPhoneNumber.setText(logDB.getPhoneNumber());
         holder._tvMesssage.setText(logDB.getMessage());

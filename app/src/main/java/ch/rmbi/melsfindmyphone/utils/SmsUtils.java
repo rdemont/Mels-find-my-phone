@@ -8,7 +8,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import ch.rmbi.melsfindmyphone.LogsActivity;
 import ch.rmbi.melsfindmyphone.MainActivity;
+import ch.rmbi.melsfindmyphone.R;
 import ch.rmbi.melsfindmyphone.db.DBController;
 import ch.rmbi.melsfindmyphone.db.LogDB;
 
@@ -38,7 +40,7 @@ public class SmsUtils {
     {
         if (withHeader)
         {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ConfigUtils.instance(_context).getDateTimePattern());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ConfigUtils.instance(_context).getStringValue(R.string.KEY_DATETIME_PATTERN, R.string.KEY_DATETIME_PATTERN_DEFAULT_VALUE));
             String msg = "[" + simpleDateFormat.format(new Date()) + "]\n";
             msg += message ;
             sendSMS(sender,contact,msg);
@@ -64,6 +66,6 @@ public class SmsUtils {
         ArrayList<String> msgArray = smsManager.divideMessage(message);
         smsManager.sendMultipartTextMessage(sender,null,msgArray,null,null);
 
-        MainActivity.refresh();
+        LogsActivity.refresh();
     }
 }

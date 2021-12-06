@@ -4,14 +4,68 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+
+import java.lang.reflect.Field;
 
 public class ConfigUtils {
     private final String TAG = this.getClass().getSimpleName();
     private static ConfigUtils _instance = null ;
     private SharedPreferences.Editor _editor = null;
     private SharedPreferences _sharedPreferences = null ;
+    private Context _context = null ;
+
+    public String getResName(int resId)
+    {
+        try {
+            return _context.getResources().getResourceName(resId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
+    //getResId("icon", R.drawable.class);
+    public static int getResId(String resName, Class<?> c) {
+
+        try {
+
+            Field idField = c.getDeclaredField(resName);
+            return idField.getInt(idField);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public int getIntValue(int key,int def)
+    {
+        return Integer.parseInt(_sharedPreferences.getString(_context.getString(key), _context.getString(def)));
+    }
+    public String getStringValue(int key,int def)
+    {
+        return _sharedPreferences.getString(_context.getString(key), _context.getString(def));
+    }
+
+    public boolean getBooleanValue(int key,boolean def)
+    {
+        return _sharedPreferences.getBoolean(String.valueOf(key), def);
+    }
 
 
+    public void setValue(String key,String value)
+    {
+        _editor.putString(key,value);
+        _editor.commit();
+    }
+
+    public void setValue(String key,boolean value)
+    {
+        _editor.putBoolean(String.valueOf(key),value);
+    }
+
+
+/*
     private String _menuHelp = "Help";
     private static String MENU_HELP = "MENU_HELP";
 
@@ -28,6 +82,7 @@ public class ConfigUtils {
 
     private String _dateTimePattern = "yyyy.MM.dd HH:mm:ss";
     private static String DATETIME_PATTERN = "DATETIME_PATTERN";
+
     private String _passphrase = "XXXX";
     private static String PASS_PHRASE = "PASS_PHRASE" ;
 
@@ -104,12 +159,6 @@ public class ConfigUtils {
     }
 
 
-    private ConfigUtils(Context context)
-    {
-        _sharedPreferences = context.getSharedPreferences(TAG,Context.MODE_PRIVATE);
-        _editor = _sharedPreferences.edit();
-        load();
-    }
 
 
     private void load()
@@ -134,6 +183,16 @@ public class ConfigUtils {
         _editor.putString(MENU_PHONE_INFO, _menuPhoneInfo);
         _editor.putBoolean(ONLY_STARRED, _onlyStarred);
         _editor.commit();
+    }
+*/
+
+
+    private ConfigUtils(Context context)
+    {
+        _sharedPreferences = context.getSharedPreferences(TAG,Context.MODE_PRIVATE);
+        _context = context ;
+        _editor = _sharedPreferences.edit();
+        //load();
     }
 
     public static ConfigUtils instance(Context context)

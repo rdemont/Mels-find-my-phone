@@ -62,7 +62,7 @@ public class SendLocationActivity extends AppCompatActivity {
     {
         LocationUtils.getInstance(this).setonLocationChangedCallback(null);
 
-        SimpleDateFormat sdf = new SimpleDateFormat(ConfigUtils.instance(this).getDateTimePattern());
+        SimpleDateFormat sdf = new SimpleDateFormat(ConfigUtils.instance(this).getStringValue(R.string.KEY_DATETIME_PATTERN,R.string.KEY_DATETIME_PATTERN_DEFAULT_VALUE));
         String msg = "Last update "+ sdf.format(new Date(location.getTime()))  ;
         msg += "https://www.openstreetmap.org/?mlat=" + location.getLatitude() + "&mlon=" + location.getLongitude();
         msg += "\n" + LocationUtils.getInstance(this).getLocationStr();

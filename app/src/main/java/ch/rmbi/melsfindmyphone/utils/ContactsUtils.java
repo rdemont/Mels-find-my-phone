@@ -29,6 +29,8 @@ public class ContactsUtils {
     public String getContactFromPhone(String phone)
     {
         String search = "%";
+
+
         if ((phone == null)||(phone.length()== 0)){
             return "";
         }
@@ -45,6 +47,7 @@ public class ContactsUtils {
         {
             search += phoneStr.substring(i,i+1)+"%";
         }
+
         String starred = "";
 
         Cursor cursor = _context.getContentResolver()
@@ -54,9 +57,11 @@ public class ContactsUtils {
                                 ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME},
                         ContactsContract.CommonDataKinds.Phone.NUMBER + " LIKE ? "+starred,
                         new String[]{search}, null);
-
-        cursor.moveToFirst();
-        return cursor.getString(1);
+        if (cursor.moveToFirst())
+        {
+            return cursor.getString(1);
+        }
+        return phone ;
 
     }
 

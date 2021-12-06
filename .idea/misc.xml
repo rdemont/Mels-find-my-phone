@@ -5,12 +5,32 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22395833333333334" />
         <entry key="app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.22395833333333334" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/drawable/ic_baseline_list_24.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/drawable/ic_baseline_phonelink_setup_24.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2677083333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.22395833333333334" />
+        <entry key="app/src/main/res/layout/activity_contact_search.xml" value="0.2269021739130435" />
+        <entry key="app/src/main/res/layout/activity_info.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/activity_lock_screen.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_logs.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1431159420289855" />
+        <entry key="app/src/main/res/layout/activity_replay.xml" value="0.2269021739130435" />
         <entry key="app/src/main/res/layout/activity_send_location.xml" value="0.15670289855072464" />
+        <entry key="app/src/main/res/layout/activity_send_message.xml" value="0.23143115942028986" />
+        <entry key="app/src/main/res/layout/contacts_adapter.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/log_row_adapter.xml" value="0.67" />
         <entry key="app/src/main/res/layout/notification.xml" value="0.12907608695652173" />
+        <entry key="app/src/main/res/layout/settings_activity.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.23143115942028986" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.1984375" />
+        <entry key="app/src/main/res/menu/menu_search.xml" value="0.2515625" />
+        <entry key="app/src/main/res/xml/main_preferences.xml" value="0.23143115942028986" />
+        <entry key="app/src/main/res/xml/menu_preferences.xml" value="0.23143115942028986" />
+        <entry key="app/src/main/res/xml/root_preferences.xml" value="0.1984375" />
       </map>
     </option>
   </component>

@@ -1,35 +1,34 @@
 package ch.rmbi.melsfindmyphone;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.Settings;
+import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import ch.rmbi.melsfindmyphone.db.BaseDB;
-import ch.rmbi.melsfindmyphone.db.DBController;
-import ch.rmbi.melsfindmyphone.db.LogDB;
-import ch.rmbi.melsfindmyphone.db.adapter.LogAdapter;
+import ch.rmbi.melsfindmyphone.db.ContactItem;
+import ch.rmbi.melsfindmyphone.db.adapter.ContactsAdapter;
 import ch.rmbi.melsfindmyphone.utils.LocationUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    private  static boolean _isActive = false;
-    private  static MainActivity _mainActivity = null;
+
 
 
     private static final int MULTIPLE_PERMISSIONS = 34454;
@@ -48,22 +47,16 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean _hasPermission = false ;
 
-    RecyclerView rvLogs;
-    ArrayList<BaseDB> arrayList = new ArrayList<>();
-    LogAdapter adapter;
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        refresh();
-    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        _mainActivity = this ;
+
 
         //open Activity from Servce
         if (!Settings.canDrawOverlays(this)) {
@@ -78,8 +71,13 @@ public class MainActivity extends AppCompatActivity {
 
         LocationUtils.getInstance(this).stopUsingGPS();
 
-        updateList();
 
+
+    }
+
+    @Override
+    protected String getHeaderTitle() {
+        return "Main screen";
     }
 
 
@@ -117,44 +115,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void updateList()
-    {
-        DBController db = new DBController(this,LogDB.class);
-        rvLogs = findViewById(R.id.rvLogs);
-        rvLogs.setLayoutManager(new LinearLayoutManager(this));
-        arrayList.clear();
-        arrayList = db.getAll();
-        adapter = new LogAdapter(this, arrayList);
-        rvLogs.setAdapter(adapter);
-        rvLogs.scrollToPosition(arrayList.size() - 1);
-
-        //adapter.setClickListener(this);
-        //recyclerView.setAdapter(adapter);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        _isActive = true ;
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        _isActive = false ;
-    }
-
-    public static boolean isActive()
-    {
-        return _isActive;
-    }
-    public static void refresh()
-    {
-        if (_isActive && _mainActivity != null)
-        {
-            _mainActivity.updateList();
-        }
-
-    }
 
 }

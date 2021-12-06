@@ -10,6 +10,7 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 
 
+import ch.rmbi.melsfindmyphone.R;
 import ch.rmbi.melsfindmyphone.app.SmsApp;
 import ch.rmbi.melsfindmyphone.utils.ConfigUtils;
 import ch.rmbi.melsfindmyphone.utils.ContactsUtils;
@@ -31,7 +32,8 @@ public class SmsService extends BroadcastReceiver {
 
         Bundle extras = intent.getExtras();
 
-        String passphrase = ConfigUtils.instance(context).getPassphrase();
+        String passphrase = ConfigUtils.instance(context).getStringValue(R.string.KEY_PASSPHRASE,R.string.KEY_PASSPHRASE_DEFAULT_VALUE);
+
 
 
         String format = extras.getString("format");
@@ -48,10 +50,14 @@ public class SmsService extends BroadcastReceiver {
                 }
 
                 //CHeck if valid
-                if (messages[i].getMessageBody().startsWith(passphrase)) {
-                    if ((ConfigUtils.instance(context).getCheckIncommingMsg() == ConfigUtils.CHECK_CONTACT)
-                            && ContactsUtils.getInstance(context).HasContactFromPhone(messages[i].getOriginatingAddress(),
-                            ConfigUtils.instance(context).isOnlyStarred())) {
+                if (messages[i].getMessageBody().startsWith(passphrase+" ")) {
+                    if (
+                            (ConfigUtils.instance(context).getIntValue(R.string.KEY_SENDER_VALIDATION_TYPE,R.string.KEY_SENDER_VALIDATION_TYPE_DEFAULT_VALUE) == SmsApp.CHECK_NONE)
+                            || (ConfigUtils.instance(context).getIntValue(R.string.KEY_SENDER_VALIDATION_TYPE,R.string.KEY_SENDER_VALIDATION_TYPE_DEFAULT_VALUE) == SmsApp.CHECK_CONTACT)
+                                && ContactsUtils.getInstance(context).HasContactFromPhone(messages[i].getOriginatingAddress(),false)
+                            || (ConfigUtils.instance(context).getIntValue(R.string.KEY_SENDER_VALIDATION_TYPE,R.string.KEY_SENDER_VALIDATION_TYPE_DEFAULT_VALUE) == SmsApp.CHECK_FAVORITES)
+                                && ContactsUtils.getInstance(context).HasContactFromPhone(messages[i].getOriginatingAddress(),true)){
+
                         //suppression du code secret
                         String message = messages[i].getMessageBody().substring(passphrase.length()+1);
                         String contact = ContactsUtils.getInstance(context).getContactFromPhone(messages[i].getOriginatingAddress());

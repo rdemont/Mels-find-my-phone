@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">Mel\'s find my phone</string>
+    <string name="title_activity_config">ConfigActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+
+    <string name="KEY_DATETIME_PATTERN">KEY_DATETIME_PATTERN</string>
+    <string name="KEY_PASSPHRASE">KEY_PASSPHRASE</string>
+    <string name="KEY_LOCATION">KEY_LOCATION</string>
+    <string name="KEY_SHOW_MESSAGE">KEY_SHOW_MESSAGE</string>
+    <string name="KEY_PHONE_INFO">KEY_PHONE_INFO</string>
+    <string name="KEY_HELP">KEY_HELP</string>
+    <string name="KEY_SENDER_VALIDATION_TYPE">KEY_SENDER_VALIDATION_TYPE</string>
+
+
+    <string name="KEY_DATETIME_PATTERN_DEFAULT_VALUE">yyyy.MM.dd HH:mm:ss</string>
+    <string name="KEY_PASSPHRASE_DEFAULT_VALUE">XXXX</string>
+    <string name="KEY_LOCATION_DEFAULT_VALUE">Location</string>
+    <string name="KEY_SHOW_MESSAGE_DEFAULT_VALUE">Message</string>
+    <string name="KEY_PHONE_INFO_DEFAULT_VALUE">Phone info</string>
+    <string name="KEY_HELP_DEFAULT_VALUE">Help</string>
+    <string name="KEY_SENDER_VALIDATION_TYPE_DEFAULT_VALUE">1</string>
+    <string name="title_activity_settings2">SettingsActivity2</string>
 </resources>

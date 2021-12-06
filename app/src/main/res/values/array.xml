@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="datetime_format_values">
+        <item>yyyy.MM.dd HH:mm:ss</item>
+        <item>dd/MM/yyyy HH:mm:ss</item>
+        <item>dd.MM.yyyy HH:mm:ss</item>
+        <item>MM/dd/YYYY hh:mm:ss aa</item>
+        <item>yyyyMMddHHmmss</item>
+    </string-array>
+
+    <string-array name="datetime_format_desc">
+        <item>ISO 8601 yyyy.MM.dd HH:mm:ss</item>
+        <item>French dd/MM/yyyy HH:mm:ss</item>
+        <item>Swiss dd.MM.yyyy HH:mm:ss</item>
+        <item>US MM/dd/yyyy hh:mm:ss aa</item>
+        <item>IT yyyyMMddHHmmss</item>
+    </string-array>
+
+
+
+
+    <string-array name="sender_validation_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="sender_validation_desc">
+        <item>Sender is not check (not recommended)</item>
+        <item>Sender must be in contact list</item>
+        <item>Sender must be in starred list</item>
+    </string-array>
+
+
+</resources>
