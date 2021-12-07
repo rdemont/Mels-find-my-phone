@@ -204,7 +204,8 @@ public class ContactSearchActivity extends BaseActivity implements AdapterView.O
     }
 
     private void setListAdapter() {
-        adapter = new ContactsAdapter(getApplicationContext(), contactItems);
+        adapter = new ContactsAdapter(this, contactItems);
+        //adapter = new ContactsAdapter(getApplicationContext(), contactItems);
         listView.setAdapter(adapter);
     }
 }

@@ -11,6 +11,8 @@
     </style>
     <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="actionOverflowMenuStyle">@style/PopupMenu</item>
+
+
     </style>
     <style name="PopupMenu" parent="Widget.AppCompat.PopupMenu.Overflow">
         <item name="android:textColor">#FFF</item>

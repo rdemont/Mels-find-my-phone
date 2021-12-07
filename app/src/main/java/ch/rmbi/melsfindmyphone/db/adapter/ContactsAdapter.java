@@ -56,6 +56,7 @@ public class ContactsAdapter extends ArrayAdapter implements Filterable {
         viewHolder.photo = (ImageView) view.findViewById(R.id.photo);
         viewHolder.number = (TextView) view.findViewById(R.id.phone);
         viewHolder.name.setText(contacts.get(position).getName());
+
         viewHolder.number.setText(contacts.get(position).getPhone());
         if ((contacts.get(position).getContactImage()) != null) {
             Bitmap contactImage = getContactImage(contacts.get(position).getContactImage());
