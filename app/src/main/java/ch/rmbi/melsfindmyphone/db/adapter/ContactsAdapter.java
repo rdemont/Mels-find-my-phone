@@ -14,15 +14,16 @@ import android.widget.TextView;
 import ch.rmbi.melsfindmyphone.R;
 import ch.rmbi.melsfindmyphone.db.ContactItem;
 
-import androidx.annotation.NonNull;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ContactsAdapter extends ArrayAdapter implements Filterable {
 
-    private Context context;
-    private List<ContactItem> contacts, filterList;
+    private final Context context;
+    private List<ContactItem> contacts;
+    private final List<ContactItem> filterList;
     private LayoutInflater inflater;
     private ContactFilter filter;
 
@@ -75,15 +76,14 @@ public class ContactsAdapter extends ArrayAdapter implements Filterable {
         int imageW = options.outWidth;
         int imageH = options.outHeight;
         int scaleFactor = 1;
-        if ((targetW > 0) || (targetH > 0)) {
-            scaleFactor = Math.min(imageW / targetW, imageH / targetH);
-        }
+
+        scaleFactor = Math.min(imageW / targetW, imageH / targetH);
+
         options.inJustDecodeBounds = false;
         options.inSampleSize = scaleFactor;
         options.inPreferredConfig = Bitmap.Config.ARGB_8888;
         return BitmapFactory.decodeByteArray(photo, 0, photo.length, options);
     }
-
 
     public class ViewHolder {
         ImageView photo;

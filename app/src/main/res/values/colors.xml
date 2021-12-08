@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="toolbar">#f57c00</color>
+
+    <color name="permission_ok">#4CAF50</color>
+    <color name="permission_ko">#FB0404</color>
 </resources>
