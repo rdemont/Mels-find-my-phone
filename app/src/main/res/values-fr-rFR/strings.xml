@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mel\'s find my phone</string>
+    <string name="base_activity_exit">Sortir</string>
+    <string name="base_activity_message_exit">Voulez-vous sortir de l\'application</string>
+    <string name="base_activity_yes">Oui</string>
+    <string name="base_activity_no">Non</string>
+    <string name="contact_search_header_title">Rechercher</string>
+    <string name="contact_search_search_hint">Text de recherche</string>
+    <string name="info_header_title">Information</string>
+    <string name="logs_header_title">Logs</string>
+    <string name="main_header_title">Droits</string>
+    <string name="send_location_last_update">Dernière mise à jour</string>
+    <string name="send_message_header_title">"Message envoyé "</string>
+    <string name="settings_header_title">Configuration</string>
+    <string name="sms_app_msg_help">Pour avoir cette aide</string>
+    <string name="sms_app_msg_localisation">Pour avoir la localisation du téléphone</string>
+    <string name="sms_app_msg_phone_info">Pour avoir des informations sur le téléphone</string>
+    <string name="sms_app_msg_message">Pour afficher un message. Réponse possible</string>
+    <string name="main_preference_menu">Menu préférence</string>
+    <string name="main_preference_menu_summary">Affichier le menu préférence</string>
+    <string name="main_preference_settings">Configuration</string>
+    <string name="main_preference_datetime_format">Format de la date et de l\'heure</string>
+    <string name="main_preference_validation_type">"Type de validation de l'envoyeur "</string>
+    <string name="menu_preference_passphrase_dialog">Mot de passe qui doit être indiqué à chaque messasge. No pas l\'ou</string>
+    <string name="menu_preference_passphrase_title">Mot de passe</string>
+    <string name="menu_preference_menu_localisation_message">"Retour la localisation du téléphone "</string>
+    <string name="menu_preference_menu_localisation_title">Localisation</string>
+    <string name="menu_preference_menu_message_message">"Affiche un message à l'écran, réponse possible "</string>
+    <string name="menu_preference_menu_message_title">Message</string>
+    <string name="menu_preference_menu_phone_info_message">"Return des informations sur le téléphone "</string>
+    <string name="menu_preference_menu_phone_info_message_title">Téléphone information</string>
+    <string name="menu_preference_menu_alert_help_message">"Il est préférable de ne pas changer ce menu. "</string>
+    <string name="menu_preference_menu_help_message">"Return toutes les options possible "</string>
+    <string name="menu_preference_menu_help_title">Help</string>
+    <string name="activity_mail_rights_description">Tous les autorisations sont nécessaire pour profiter plainement de l\'application</string>
+    <string name="activity_main_right_localisation">Autorisation de localisation</string>
+    <string name="activity_main_right_localisation_desc">Cette autorisation est indispansable pour la localisation du téléphone</string>
+    <string name="activity_main_right_sms">Autorisation sur les SMS</string>
+    <string name="activity_main_right_sms_desc">Cette autorisation est indispensable pour l\'utilisation de l\'apps</string>
+    <string name="activity_main_right_contact">Autorisation sur les contacts</string>
+    <string name="activity_main_right_contact_desc">Indispensable pour pouvoir controler que l\'emeteur est bien dans les contacts</string>
+    <string name="activity_main_right_state">Status du téléphone</string>
+    <string name="activity_main_right_state_desc">Cette autorisation est nécessaire uniquement pour optenir le status du téléphone</string>
+    <string name="activity_main_right_overlay">Autorisation de premier-plan</string>
+    <string name="activity_main_right_overlay_desc">Autorisation nécessaire pour les message et pour la localisation</string>
+
+</resources>

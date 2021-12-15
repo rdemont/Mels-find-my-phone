@@ -33,7 +33,7 @@ public class SettingsActivity extends BaseActivity {
 
     @Override
     protected String getHeaderTitle() {
-        return "Settings";
+        return getString(R.string.settings_header_title);
     }
 
 

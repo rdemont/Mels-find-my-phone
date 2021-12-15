@@ -2,14 +2,14 @@
 
     <Preference
         app:key="MENU_FRAGMENT_TAG"
-        app:summary="Shows menu preferences"
-        app:title="Menu preference"
+        app:summary="@string/main_preference_menu_summary"
+        app:title="@string/main_preference_menu"
         app:fragment="ch.rmbi.melsfindmyphone.SettingsActivity$SettingsMenuFragment"
         />
 
 
 
-    <PreferenceCategory app:title="Settings">
+    <PreferenceCategory app:title="@string/main_preference_settings">
 
 
         <ListPreference
@@ -17,7 +17,7 @@
 
             app:entries="@array/datetime_format_desc"
             app:entryValues="@array/datetime_format_values"
-            app:title="Date time format"
+            app:title="@string/main_preference_datetime_format"
             app:summary="%s"
             app:useSimpleSummaryProvider="false" />
 
@@ -25,7 +25,7 @@
             app:key="@string/KEY_SENDER_VALIDATION_TYPE"
             app:entries="@array/sender_validation_desc"
             app:entryValues="@array/sender_validation_values"
-            app:title="Sender validation type"
+            app:title="@string/main_preference_validation_type"
             app:summary="%s"
             app:useSimpleSummaryProvider="false" />
 

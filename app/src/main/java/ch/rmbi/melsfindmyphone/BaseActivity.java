@@ -74,15 +74,16 @@ public abstract class BaseActivity  extends AppCompatActivity implements View.On
         ImageButton ibInfo =  toolbar.findViewById(R.id.TOOLBAR_BTN_INFO);
 
         ibList.setVisibility(View.VISIBLE);
-        ibMessage.setVisibility(View.VISIBLE);
+        //ibMessage.setVisibility(View.VISIBLE);
+        ibMessage.setVisibility(View.GONE);
         ibSettings.setVisibility(View.VISIBLE);
         ibInfo.setVisibility(View.VISIBLE);
 
         if (!(this instanceof MainActivity)){
-            ibSettings.setVisibility(View.INVISIBLE);
-            ibList.setVisibility(View.INVISIBLE);
-            ibMessage.setVisibility(View.INVISIBLE);
-            ibInfo.setVisibility(View.INVISIBLE);
+            ibSettings.setVisibility(View.GONE);
+            ibList.setVisibility(View.GONE);
+            ibMessage.setVisibility(View.GONE);
+            ibInfo.setVisibility(View.GONE);
         }
 
         ibSettings.setOnClickListener(this);
@@ -104,11 +105,11 @@ public abstract class BaseActivity  extends AppCompatActivity implements View.On
 
             AlertDialog quittingDialogBox = new AlertDialog.Builder(this)
                     // set message, title, and icon
-                    .setTitle("Exit")
-                    .setMessage("Do you want exit the apps")
+                    .setTitle(R.string.base_activity_exit)
+                    .setMessage(R.string.base_activity_message_exit)
                     .setIcon(R.drawable.ic_baseline_exit_to_app_24)
 
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.base_activity_yes, new DialogInterface.OnClickListener() {
 
                         public void onClick(DialogInterface dialog, int whichButton) {
                             //your deleting code
@@ -119,7 +120,7 @@ public abstract class BaseActivity  extends AppCompatActivity implements View.On
                         }
 
                     })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.base_activity_no, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
 
                             dialog.dismiss();

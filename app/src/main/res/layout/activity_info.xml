@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".InfoActivity">
+
     <include
         android:id="@+id/tool_bar"
         layout="@layout/toolbar" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="\n\n\nThis app's was made first to locate the phone of my family.\n\n Localisation, phoneinformation an other information are collected only for this application. \n\n This app's is in OpenSouce licence and store in Github\n\n Enjoy it ;-) "
+
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+
+
+</LinearLayout>

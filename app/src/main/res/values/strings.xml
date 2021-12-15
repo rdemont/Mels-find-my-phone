@@ -1,38 +1,73 @@
 <resources>
     <string name="app_name">Mel\'s find my phone</string>
-    <string name="title_activity_config">ConfigActivity</string>
-
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
 
-    <string name="KEY_DATETIME_PATTERN">KEY_DATETIME_PATTERN</string>
-    <string name="KEY_PASSPHRASE">KEY_PASSPHRASE</string>
-    <string name="KEY_LOCATION">KEY_LOCATION</string>
-    <string name="KEY_SHOW_MESSAGE">KEY_SHOW_MESSAGE</string>
-    <string name="KEY_PHONE_INFO">KEY_PHONE_INFO</string>
-    <string name="KEY_HELP">KEY_HELP</string>
-    <string name="KEY_SENDER_VALIDATION_TYPE">KEY_SENDER_VALIDATION_TYPE</string>
+    <string name="KEY_DATETIME_PATTERN" translatable="false">KEY_DATETIME_PATTERN</string>
+    <string name="KEY_PASSPHRASE" translatable="false">KEY_PASSPHRASE</string>
+    <string name="KEY_LOCATION" translatable="false">KEY_LOCATION</string>
+    <string name="KEY_SHOW_MESSAGE" translatable="false">KEY_SHOW_MESSAGE</string>
+    <string name="KEY_PHONE_INFO" translatable="false">KEY_PHONE_INFO</string>
+    <string name="KEY_HELP" translatable="false">KEY_HELP</string>
+    <string name="KEY_SENDER_VALIDATION_TYPE" translatable="false">KEY_SENDER_VALIDATION_TYPE</string>
 
+    <string name="KEY_DATETIME_PATTERN_DEFAULT_VALUE" translatable="false">yyyy.MM.dd HH:mm:ss</string>
+    <string name="KEY_PASSPHRASE_DEFAULT_VALUE" translatable="false">XXXX</string>
+    <string name="KEY_LOCATION_DEFAULT_VALUE" translatable="false">Location</string>
+    <string name="KEY_SHOW_MESSAGE_DEFAULT_VALUE" translatable="false">Message</string>
+    <string name="KEY_PHONE_INFO_DEFAULT_VALUE" translatable="false">Phone info</string>
+    <string name="KEY_HELP_DEFAULT_VALUE" translatable="false">Help</string>
+    <string name="KEY_SENDER_VALIDATION_TYPE_DEFAULT_VALUE" translatable="false">1</string>
 
-    <string name="KEY_DATETIME_PATTERN_DEFAULT_VALUE">yyyy.MM.dd HH:mm:ss</string>
-    <string name="KEY_PASSPHRASE_DEFAULT_VALUE">XXXX</string>
-    <string name="KEY_LOCATION_DEFAULT_VALUE">Location</string>
-    <string name="KEY_SHOW_MESSAGE_DEFAULT_VALUE">Message</string>
-    <string name="KEY_PHONE_INFO_DEFAULT_VALUE">Phone info</string>
-    <string name="KEY_HELP_DEFAULT_VALUE">Help</string>
-    <string name="KEY_SENDER_VALIDATION_TYPE_DEFAULT_VALUE">1</string>
-    <string name="title_activity_settings2">SettingsActivity2</string>
+    <string name="base_activity_exit">Exit</string>
+    <string name="base_activity_message_exit">Do you want exit the apps</string>
+    <string name="base_activity_yes">Yes</string>
+    <string name="base_activity_no">No</string>
+    <string name="contact_search_header_title">Search</string>
+    <string name="contact_search_search_hint">Search TXT</string>
+    <string name="info_header_title">Info</string>
+    <string name="logs_header_title">Logs</string>
+    <string name="main_header_title">Rights</string>
+    <string name="send_location_last_update">Last update</string>
+    <string name="send_message_header_title">Send message</string>
+    <string name="settings_header_title">Settings</string>
+    <string name="sms_app_msg_help">To get this help</string>
+    <string name="sms_app_msg_localisation">To get the localisation of the phone</string>
+    <string name="sms_app_msg_phone_info">To get Phone information</string>
+    <string name="sms_app_msg_message">To show a message on the phone, Answer possible</string>
+    <string name="main_preference_menu">Menu preference</string>
+    <string name="main_preference_menu_summary">Shows menu preferences</string>
+    <string name="main_preference_settings">Settings</string>
+    <string name="main_preference_datetime_format">Date time format</string>
+    <string name="main_preference_validation_type">Sender validation type</string>
+    <string name="menu_preference_passphrase_dialog">Passphrase which must be at the start of each message to be poroceeded. Do not forget it</string>
+    <string name="menu_preference_passphrase_title">Passphrase</string>
+    <string name="menu_preference_menu_localisation_message">Text to get the localisation of the phone</string>
+    <string name="menu_preference_menu_localisation_title">menu location</string>
+    <string name="menu_preference_menu_message_message">Text to show a message to the user. Answer is possible</string>
+    <string name="menu_preference_menu_message_title">menu message</string>
+    <string name="menu_preference_menu_phone_info_message">replay with some information about the phone</string>
+    <string name="menu_preference_menu_phone_info_message_title">Phone information</string>
+    <string name="menu_preference_menu_alert_help_message">It\'s better to not change this text. It will be use to get all other possible option</string>
+    <string name="menu_preference_menu_help_message">Replay wit hall possible options</string>
+    <string name="menu_preference_menu_help_title">menu help</string>
+    <string name="activity_mail_rights_description">All rights are needed for full functionality.</string>
+    <string name="activity_main_right_localisation">Localisation rights</string>
+    <string name="activity_main_right_localisation_desc">This right is mandatory to get the localisation</string>
+    <string name="activity_main_right_sms">SMS Rights</string>
+    <string name="activity_main_right_sms_desc">SMS Rights are mandatory to read message.</string>
+    <string name="activity_main_right_contact">Contact rights</string>
+    <string name="activity_main_right_contact_desc">Mandatory to check if the sender is on the address book</string>
+    <string name="activity_main_right_state">Phone state rights</string>
+    <string name="activity_main_right_state_desc">this right is optional, it\'s mandatory if you want get some information on the phone</string>
+    <string name="activity_main_right_overlay">Overlay rights</string>
+    <string name="activity_main_right_overlay_desc">This rights is mandatory if you want with a message or get the localisation</string>
+    <string name="title_activity_send_message">SendMessageActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

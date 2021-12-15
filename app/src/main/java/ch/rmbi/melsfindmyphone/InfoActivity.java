@@ -14,6 +14,6 @@ public class InfoActivity extends BaseActivity {
 
     @Override
     protected String getHeaderTitle() {
-        return "Info";
+        return getString(R.string.info_header_title);
     }
 }

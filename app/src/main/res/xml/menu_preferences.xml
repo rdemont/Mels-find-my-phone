@@ -4,43 +4,43 @@
 
 
         <EditTextPreference
-            app:dialogMessage="Text qui doit être au début de chaque message"
-            app:dialogTitle="Passphrase"
+            app:dialogMessage="@string/menu_preference_passphrase_dialog"
+            app:dialogTitle="@string/menu_preference_passphrase_title"
             app:key="@string/KEY_PASSPHRASE"
-            app:title="Passphrase"
+            app:title="@string/menu_preference_passphrase_title"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
-            app:dialogMessage="menu pour avoir la localisation du téléphone"
-            app:dialogTitle="menu location"
+            app:dialogMessage="@string/menu_preference_menu_localisation_message"
+            app:dialogTitle="@string/menu_preference_menu_localisation_title"
             app:key="@string/KEY_LOCATION"
-            app:title="menu location"
+            app:title="@string/menu_preference_menu_localisation_title"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
-            app:dialogMessage="Affiche un message à l'utilisateur, avec une réponse possible"
-            app:dialogTitle="menu message"
+            app:dialogMessage="@string/menu_preference_menu_message_message"
+            app:dialogTitle="@string/menu_preference_menu_message_title"
             app:key="@string/KEY_SHOW_MESSAGE"
-            app:title="menu message"
+            app:title="@string/menu_preference_menu_message_title"
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
-            app:dialogMessage="Renvoie les informations du téléphone"
-            app:dialogTitle="menu information du téléphone"
+            app:dialogMessage="@string/menu_preference_menu_phone_info_message"
+            app:dialogTitle="@string/menu_preference_menu_phone_info_message_title"
             app:key="@string/KEY_PHONE_INFO"
-            app:title="menu information du téléphone"
+            app:title="@string/menu_preference_menu_phone_info_message_title"
             app:useSimpleSummaryProvider="true" />
 
         <SwitchPreferenceCompat
             app:key="sync"
-            app:title="Il est préférable de ne pas cahnger ce menu" />
+            app:title="@string/menu_preference_menu_alert_help_message" />
 
         <EditTextPreference
             app:dependency="sync"
-            app:dialogMessage="Renvoie ne aide sur les différenes options "
-            app:dialogTitle="menu help"
+            app:dialogMessage="@string/menu_preference_menu_help_message"
+            app:dialogTitle="@string/menu_preference_menu_help_title"
             app:key="@string/KEY_HELP"
-            app:title="menu help"
+            app:title="@string/menu_preference_menu_help_title"
             app:useSimpleSummaryProvider="true" />
 
 

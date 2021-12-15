@@ -130,10 +130,10 @@ public class SmsApp {
     private void sendHelp()
     {
         String msg = "";
-        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_HELP,R.string.KEY_HELP_DEFAULT_VALUE)+ "] To get this help\n";
-        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_LOCATION,R.string.KEY_LOCATION_DEFAULT_VALUE) + "] To get the localisation of the phone\n";
-        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_PHONE_INFO,R.string.KEY_PHONE_INFO_DEFAULT_VALUE) + "] To get Phone information\n";
-        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_SHOW_MESSAGE,R.string.KEY_SHOW_MESSAGE_DEFAULT_VALUE) + "+ Message] To show a message on the phone \n";
+        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_HELP,R.string.KEY_HELP_DEFAULT_VALUE)+ "] "+_context.getString(R.string.sms_app_msg_help)+"\n";
+        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_LOCATION,R.string.KEY_LOCATION_DEFAULT_VALUE) + "] "+_context.getString(R.string.sms_app_msg_localisation)+"\n";
+        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_PHONE_INFO,R.string.KEY_PHONE_INFO_DEFAULT_VALUE) + "] "+_context.getString(R.string.sms_app_msg_phone_info)+"\n";
+        msg += "["+ConfigUtils.instance(_context).getStringValue(R.string.KEY_SHOW_MESSAGE,R.string.KEY_SHOW_MESSAGE_DEFAULT_VALUE) + "Message"+"] "+_context.getString(R.string.sms_app_msg_message)+"\n";
         SmsUtils.instance(_context).sendSMS(_sender,_contact,msg, true);
     }
 
@@ -279,10 +279,10 @@ public class SmsApp {
 
         TelephonyManager telephonyManager = (TelephonyManager) _context.getSystemService(Context.TELEPHONY_SERVICE);
         String msg = "";
-        msg += "Device ID :"+ PhoneInformationUtils.instance(_context).getDeviceId();
-        msg += "\nIMEI :"+ PhoneInformationUtils.instance(_context).getImei();
-        msg += "\nSIM Serial :"+ PhoneInformationUtils.instance(_context).getSimSerialNumber();
-        msg += "\nOperator :"+PhoneInformationUtils.instance(_context).getNetworkOperatorName();
+        msg += "Device ID"+" :"+ PhoneInformationUtils.instance(_context).getDeviceId();
+        msg += "\n"+"IMEI"+" :"+ PhoneInformationUtils.instance(_context).getImei();
+        msg += "\n\"+\"SIM Serial"+" :"+ PhoneInformationUtils.instance(_context).getSimSerialNumber();
+        msg += "\n\"+\"Operator"+" :"+PhoneInformationUtils.instance(_context).getNetworkOperatorName();
         msg += "\n"+PhoneInformationUtils.instance(_context).getBatteryLevel();
         msg += "\n"+PhoneInformationUtils.instance(_context).getBatteryCharging();
         SmsUtils.instance(_context).sendSMS(_sender,_contact,msg, true);

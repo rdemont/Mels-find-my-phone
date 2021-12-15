@@ -23,16 +23,34 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/frame_toolbar"
         android:cacheColorHint="@android:color/transparent"
+        android:choiceMode="singleChoice"
         android:clipToPadding="false"
         android:divider="@null"
         android:dividerHeight="1dp"
-        android:choiceMode="singleChoice"
-        android:listSelector="@android:color/transparent" />
+        android:listSelector="@android:color/transparent">
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
+
+
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/waiting_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="229dp"
+            android:layout_height="229dp"
+            android:layout_centerInParent="true" />
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Contacts search" />
+    </LinearLayout>
 
 </RelativeLayout>

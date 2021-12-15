@@ -1,8 +1,6 @@
 package ch.rmbi.melsfindmyphone;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
@@ -19,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -34,14 +31,15 @@ import ch.rmbi.melsfindmyphone.utils.ErrorUtils;
 public class ContactSearchActivity extends BaseActivity implements AdapterView.OnItemClickListener, View.OnClickListener, View.OnFocusChangeListener, SearchView.OnQueryTextListener {
 
 
-    protected Toolbar toolbar;
+    //protected Toolbar toolbar;
     private String id, name, phone, image_uri;
     private byte[] contactImage = null;
     private Bitmap bitmap;
     private int queryLength;
     private List<ContactItem> contactItems;
     private ListView listView;
-    private ProgressBar progressBar;
+    //private ProgressBar progressBar;
+    private View waitingScreen;
     private ContactsAdapter adapter;
     private SearchView searchView;
     private MenuItem searchMenuItem;
@@ -58,15 +56,17 @@ public class ContactSearchActivity extends BaseActivity implements AdapterView.O
 
     @Override
     protected String getHeaderTitle() {
-        return "Search";
+        return getString(R.string.contact_search_header_title);
     }
 
 
     private void init() {
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
+        //toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        //setSupportActionBar(toolbar);
         listView = (ListView) findViewById(R.id.contact_list);
-        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        //progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+        waitingScreen = findViewById(R.id.waiting_screen);
+
 
         listView.setOnItemClickListener(this);
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -131,17 +131,13 @@ public class ContactSearchActivity extends BaseActivity implements AdapterView.O
         getMenuInflater().inflate(R.menu.menu_search, menu);
         searchView = (SearchView) menu.findItem(R.id.search).getActionView();
         searchMenuItem = menu.findItem(R.id.search);
-        searchView.setQueryHint("Search TXT");//getResources().getString(R.string.type_here));
+        searchView.setQueryHint(getString(R.string.contact_search_search_hint));//getResources().getString(R.string.type_here));
         searchView.setOnQueryTextFocusChangeListener(this);
         searchView.setOnQueryTextListener(this);
         return super.onCreateOptionsMenu(menu);
 
     }
 
-    @Override
-    public void onClick(View v) {
-
-    }
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
@@ -183,7 +179,8 @@ public class ContactSearchActivity extends BaseActivity implements AdapterView.O
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressBar.setVisibility(View.VISIBLE);
+            //progressBar.setVisibility(View.VISIBLE);
+            waitingScreen.setVisibility(View.VISIBLE);
             listView.setVisibility(View.GONE);
         }
 
@@ -196,7 +193,8 @@ public class ContactSearchActivity extends BaseActivity implements AdapterView.O
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            progressBar.setVisibility(View.GONE);
+            //progressBar.setVisibility(View.GONE);
+            waitingScreen.setVisibility(View.GONE);
             listView.setVisibility(View.VISIBLE);
             setListAdapter();
 

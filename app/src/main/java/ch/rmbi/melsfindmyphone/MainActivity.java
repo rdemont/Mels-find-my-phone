@@ -136,7 +136,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected String getHeaderTitle() {
-        return "Main screen";
+        return getString(R.string.main_header_title);
     }
 
 

@@ -16,4 +16,13 @@
         <item name="windowNoTitle">true</item>
 
     </style>
+
+    <style name="Theme.MelsFindMyPhone.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MelsFindMyPhone.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MelsFindMyPhone.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

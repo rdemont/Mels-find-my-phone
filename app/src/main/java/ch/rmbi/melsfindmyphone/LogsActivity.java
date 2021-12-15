@@ -40,7 +40,7 @@ public class LogsActivity extends BaseActivity {
 
     @Override
     protected String getHeaderTitle() {
-        return "Logs";
+        return getString(R.string.logs_header_title);
     }
 
     private void updateList()
