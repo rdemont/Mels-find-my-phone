@@ -18,4 +18,19 @@
         <item name="android:textColor">#FFF</item>
     </style>
 
+
+    <!-- title in a page -->
+    <style name="mels_text_body_title" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/mels_text_body_title</item>
+
+    </style>
+
+    <!-- body text -->
+    <style name="mels_text_body" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/mels_text_body</item>
+    </style>
+
+
 </resources>

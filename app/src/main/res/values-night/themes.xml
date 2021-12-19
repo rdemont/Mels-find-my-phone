@@ -15,5 +15,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
+
+        <item name="android:fontFamily">@font/font_family_roboto</item>
+        <item name="android:textColor">@color/text_themes_dark</item>
     </style>
 </resources>

@@ -16,6 +16,7 @@
         android:id="@+id/textView13"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textSize="@dimen/mels_bodytext"
         android:text="\n\n\nThis app's was made first to locate the phone of my family.\n\n Localisation, phoneinformation an other information are collected only for this application. \n\n This app's is in OpenSouce licence and store in Github\n\n Enjoy it ;-) "
 
         android:gravity="center"

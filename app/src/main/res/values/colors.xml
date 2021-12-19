@@ -11,4 +11,7 @@
 
     <color name="permission_ok">#4CAF50</color>
     <color name="permission_ko">#FB0404</color>
+
+    <color name="text_themes_dark">#FFACA4A4</color>
+    <color name="text_themes_light">#FF000000</color>
 </resources>

@@ -1,3 +1,12 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="mels_title">20sp</dimen>
+    <dimen name="mels_bodytext">16sp</dimen>
+    <dimen name="mels_idemlist">16sp</dimen>
+
+
+    <dimen name="mels_text_body_title">20sp</dimen>
+    <dimen name="mels_text_body">16sp</dimen>
+
 </resources>

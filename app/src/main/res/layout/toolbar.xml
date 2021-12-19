@@ -21,11 +21,11 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textStyle="bold"
 
-            android:fontFamily="sans-serif-black"
+            android:textSize="@dimen/mels_title"
 
-            android:gravity="center"
+            android:paddingStart="20dp"
+            android:gravity="left|center"
             android:text="TextView" />
 
         <ImageButton

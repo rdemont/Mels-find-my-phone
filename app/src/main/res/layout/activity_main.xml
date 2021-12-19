@@ -37,6 +37,8 @@
                 android:text="@string/activity_mail_rights_description"
                 android:gravity="left"
                 android:singleLine="false"
+                android:textStyle="bold"
+                android:textSize="@dimen/mels_bodytext"
                 android:layout_span="2"/>
         </TableRow>
 
@@ -55,6 +57,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="false"
+
+                    style="@style/mels_text_body_title"
+
                     android:text="@string/activity_main_right_localisation" />
 
                 <TextView
@@ -62,6 +67,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="false"
+
+                    style="@style/mels_text_body"
+
                     android:text="@string/activity_main_right_localisation_desc" />
             </LinearLayout>
 
@@ -92,6 +100,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="false"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/mels_bodytext"
                     android:text="@string/activity_main_right_sms" />
 
                 <TextView
@@ -99,6 +109,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="false"
+                    android:textStyle="normal"
+                    android:textSize="@dimen/mels_bodytext"
                     android:text="@string/activity_main_right_sms_desc" />
             </LinearLayout>
 
@@ -129,6 +141,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="false"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/mels_bodytext"
                     android:text="@string/activity_main_right_contact" />
 
                 <TextView
@@ -136,6 +150,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="false"
+                    android:textStyle="normal"
+                    android:textSize="@dimen/mels_bodytext"
                     android:text="@string/activity_main_right_contact_desc" />
             </LinearLayout>
 
@@ -167,6 +183,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="false"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/mels_bodytext"
                     android:text="@string/activity_main_right_state" />
 
                 <TextView
@@ -174,6 +192,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="false"
+                    android:textStyle="normal"
+                    android:textSize="@dimen/mels_bodytext"
                     android:text="@string/activity_main_right_state_desc" />
             </LinearLayout>
 
@@ -206,6 +226,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="false"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/mels_bodytext"
                     android:text="@string/activity_main_right_overlay" />
 
                 <TextView
@@ -213,7 +235,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="false"
-
+                    android:textStyle="normal"
+                    android:textSize="@dimen/mels_bodytext"
                     android:text="@string/activity_main_right_overlay_desc" />
             </LinearLayout>
 
