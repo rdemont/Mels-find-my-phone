@@ -7,11 +7,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="toolbar">#f57c00</color>
+
+
+
+    <color name="toolbar">#FF9800</color>
 
     <color name="permission_ok">#4CAF50</color>
     <color name="permission_ko">#FB0404</color>
 
-    <color name="text_themes_dark">#FFACA4A4</color>
+    <color name="text_themes_dark">#A69B9B</color>
     <color name="text_themes_light">#FF000000</color>
+    <color name="button_border_color">#A69B9B</color>
+
+    <color name="log_backgroud_color">#353232</color>
 </resources>

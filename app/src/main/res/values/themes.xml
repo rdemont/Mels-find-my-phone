@@ -19,10 +19,19 @@
         <item name="android:textColor">@color/text_themes_light</item>
     </style>
 
+
+    <style name="theme_mels_toolbar_text_title" parent="Theme.MelsFindMyPhone">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+<!--
     <style name="Theme.MelsFindMyPhone.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+-->
+
+
 
     <style name="Theme.MelsFindMyPhone.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

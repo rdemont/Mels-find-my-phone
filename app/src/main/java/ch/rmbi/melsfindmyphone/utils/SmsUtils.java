@@ -55,7 +55,7 @@ public class SmsUtils {
         DBController db = new DBController(_context, LogDB.class);
         LogDB logObj = (LogDB)db.newObj();
         logObj.setDate(new Date());
-        logObj.setWay(LogDB.WAY_RECEIVE);
+        logObj.setWay(LogDB.WAY_SEND);
         logObj.setPhoneNumber(sender);
         logObj.setContact(contact);
         logObj.setMessage(message);

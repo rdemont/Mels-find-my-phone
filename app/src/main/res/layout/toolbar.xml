@@ -22,34 +22,41 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
 
-            android:textSize="@dimen/mels_title"
-
+            style="@style/mels_toolbar_text_title"
             android:paddingStart="20dp"
-            android:gravity="left|center"
             android:text="TextView" />
 
         <ImageButton
             android:id="@+id/TOOLBAR_BTN_MESSAGE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            style="@style/mels_toolbar_button"
             android:src="@drawable/ic_baseline_message_24" />
 
         <ImageButton
             android:id="@+id/TOOLBAR_BTN_LIST"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            style="@style/mels_toolbar_button"
             android:src="@drawable/ic_baseline_list_24" />
 
         <ImageButton
             android:id="@+id/TOOLBAR_BTN_SETTINGS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            style="@style/mels_toolbar_button"
             android:src="@drawable/ic_baseline_settings_24" />
 
         <ImageButton
             android:id="@+id/TOOLBAR_BTN_INFO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            style="@style/mels_toolbar_button"
+
             android:src="@drawable/ic_baseline_info_24" />
 
     </LinearLayout>

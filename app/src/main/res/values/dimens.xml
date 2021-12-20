@@ -8,5 +8,5 @@
 
     <dimen name="mels_text_body_title">20sp</dimen>
     <dimen name="mels_text_body">16sp</dimen>
-
+    <dimen name="mels_toolbar_text_title">24sp</dimen>
 </resources>

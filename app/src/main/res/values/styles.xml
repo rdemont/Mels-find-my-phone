@@ -20,17 +20,60 @@
 
 
     <!-- title in a page -->
-    <style name="mels_text_body_title" parent="TextAppearance.AppCompat">
+    <style name="mels_text_body_title" parent="Theme.MelsFindMyPhone">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/mels_text_body_title</item>
-
+        <item name="singleLine">false</item>
+        <item name="android:gravity">left</item>
     </style>
 
     <!-- body text -->
-    <style name="mels_text_body" parent="TextAppearance.AppCompat">
+    <style name="mels_text_body" parent="Theme.MelsFindMyPhone">
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">@dimen/mels_text_body</item>
+        <item name="singleLine">false</item>
+        <item name="android:gravity">left</item>
     </style>
+
+    <!-- log text generic -->
+    <style name="mels_text_log" parent="mels_text_body">
+
+    </style>
+    <!-- log text title -->
+    <style name="mels_text_log_title" parent="mels_text_log">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- log text phone number -->
+    <style name="mels_text_log_phone_number" parent="mels_text_log">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- log text contact -->
+    <style name="mels_text_log_contact" parent="mels_text_log">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- log text message -->
+    <style name="mels_text_log_message" parent="mels_text_log">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
+    <!-- toolbar title text -->
+    <style name="mels_toolbar_text_title" parent="theme_mels_toolbar_text_title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/mels_toolbar_text_title</item>
+        <item name="singleLine">false</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+
+
+    <!-- Toolbar button -->
+    <style name="mels_toolbar_button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:paddingVertical">@dimen/mels_toolbar_text_title</item>
+        <item name="android:paddingHorizontal">10sp</item>
+        <item name="android:background">@drawable/button_bg_transparent</item>
+    </style>
+
 
 
 </resources>

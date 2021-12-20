@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,6 +49,12 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
         holder._tvPhoneNumber.setText(logDB.getPhoneNumber());
         holder._tvMesssage.setText(logDB.getMessage());
         holder._tvContact.setText(logDB.getContact());
+        if (logDB.getWay() == LogDB.WAY_RECEIVE )
+        {
+            holder._ivTransmissionType.setImageResource(R.drawable.ic_baseline_received_24);
+        }else {
+            holder._ivTransmissionType.setImageResource(R.drawable.ic_baseline_send_24);
+        }
 
     }
 
@@ -63,12 +70,14 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
         private TextView _tvPhoneNumber;
         private TextView _tvMesssage;
         private TextView _tvContact;
+        private ImageView _ivTransmissionType ;
         ViewHolder(View itemView) {
             super(itemView);
             _tvDate = itemView.findViewById(R.id.tvDate);
             _tvPhoneNumber = itemView.findViewById(R.id.tvPhoneNumber);
             _tvMesssage = itemView.findViewById(R.id.tvMessage);
             _tvContact = itemView.findViewById(R.id.tvContact);
+            _ivTransmissionType = itemView.findViewById(R.id.ivTransmissionType);
 
             itemView.setOnClickListener(this);
         }

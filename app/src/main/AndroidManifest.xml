@@ -22,8 +22,8 @@
         <activity
             android:name=".SendMessageActivity"
             android:exported="true"
-            android:label="@string/title_activity_send_message"
-            android:theme="@style/Theme.MelsFindMyPhone.NoActionBar" />
+            android:label="@string/title_activity_send_message"/> <!--
+            android:theme="@style/Theme.MelsFindMyPhone.NoActionBar" -->
         <activity
             android:name=".ContactSearchActivity"
             android:enabled="true"
